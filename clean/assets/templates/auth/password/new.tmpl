@@ -1,0 +1,28 @@
+<link rel="stylesheet" media="all" href="{{static_url "/auth/styles/qor_auth.css"}}" />
+<div class="container qor-auth qor-auth-light">
+  <div class="qor-auth-box">
+
+    {{$flashes := .Flashes}}
+    {{if $flashes}}
+      <ul>
+        {{range $flash := $flashes}}
+          <li>{{$flash.Message}}</li>
+        {{end}}
+      </ul>
+    {{end}}
+
+    <h1>{{ t (.I18n "passwords.forgot_password") }}</h1>
+    <h2>{{ t (.I18n "passwords.forgot_password_desc") }}</h2>
+    <form action="{{.AuthURL "password/recover"}}" method="POST">
+      <ul class="auth-form">
+        <li>
+          <label for="email">{{t (.I18n "form.email")}}</label>
+          <input name="email" id="email" type="email" placeholder="{{t (.I18n "form.email_placeholder")}}" />
+        </li>
+        <li>
+          <button type="submit" class="button button__primary">{{t (.I18n "form.forgot_password")}}</button>
+        </li>
+      </ul>
+    </form>
+  </div>
+</div>

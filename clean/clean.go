@@ -3,24 +3,22 @@ package clean
 import (
 	"errors"
 
-	"github.com/qor/auth"
-	"github.com/qor/auth/claims"
-	"github.com/qor/auth/providers/password"
-	"github.com/qor/render"
-	"github.com/qor/qor"
 	"github.com/moisespsena/template/html/template"
+	"github.com/aghape/auth"
+	"github.com/aghape/auth/claims"
+	"github.com/aghape/auth/providers/password"
+	"github.com/aghape/aghape"
+	"github.com/aghape/render"
 )
 
 // ErrPasswordConfirmationNotMatch password confirmation not match error
 var ErrPasswordConfirmationNotMatch = errors.New("password confirmation doesn't match password")
-
 
 // New initialize clean theme
 func New(config *auth.Config) *auth.Auth {
 	if config == nil {
 		config = &auth.Config{}
 	}
-	config.ViewPaths = append(config.ViewPaths, "github.com/qor/auth_themes/clean/views")
 
 	if config.Render == nil {
 		config.Render = render.New(&render.Config{
@@ -47,12 +45,6 @@ func New(config *auth.Config) *auth.Auth {
 			return password.DefaultRegisterHandler(context)
 		},
 	}))
-
-	Auth.Config.SetupDB(func(db *qor.DB) error {
-		// Migrate Auth Identity model
-		db.DB.AutoMigrate(Auth.Config.AuthIdentityModel)
-		return nil
-	})
 
 	return Auth
 }
