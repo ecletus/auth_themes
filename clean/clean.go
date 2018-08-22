@@ -7,7 +7,7 @@ import (
 	"github.com/aghape/auth"
 	"github.com/aghape/auth/claims"
 	"github.com/aghape/auth/providers/password"
-	"github.com/aghape/aghape"
+	"github.com/aghape/core"
 	"github.com/aghape/render"
 )
 
@@ -22,7 +22,7 @@ func New(config *auth.Config) *auth.Auth {
 
 	if config.Render == nil {
 		config.Render = render.New(&render.Config{
-			FuncMapMaker: func(funcs *template.FuncValues, render *render.Render, context *qor.Context) error {
+			FuncMapMaker: func(funcs *template.FuncValues, render *render.Render, context *core.Context) error {
 				ctx := context.GetI18nContext()
 				return funcs.Set("t", func(key string, args ...interface{}) template.HTML {
 					return template.HTML(ctx.T(key).DefaultAndDataFromArgs(args...).Get())
