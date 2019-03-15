@@ -4,11 +4,11 @@ import (
 	"errors"
 
 	"github.com/moisespsena/template/html/template"
-	"github.com/aghape/auth"
-	"github.com/aghape/auth/claims"
-	"github.com/aghape/auth/providers/password"
-	"github.com/aghape/core"
-	"github.com/aghape/render"
+	"github.com/ecletus/auth"
+	"github.com/ecletus/auth/claims"
+	"github.com/ecletus/auth/providers/password"
+	"github.com/ecletus/core"
+	"github.com/ecletus/render"
 )
 
 // ErrPasswordConfirmationNotMatch password confirmation not match error

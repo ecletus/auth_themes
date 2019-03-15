@@ -1,8 +1,8 @@
 package clean
 
 import (
-	"github.com/aghape/auth"
-	"github.com/aghape/auth/providers/password"
+	"github.com/ecletus/auth"
+	"github.com/ecletus/auth/providers/password"
 )
 
 type Plugin struct {
