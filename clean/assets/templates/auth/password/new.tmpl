@@ -12,7 +12,7 @@
     {{end}}
 
     <h1>{{ t (.I18n "passwords.forgot_password") }}</h1>
-    <h2>{{ t (.I18n "passwords.forgot_password_desc") }}</h2>
+    <p>{{ t (.I18n "passwords.forgot_password_desc") }}</p>
     <form action="{{.AuthURL "password/recover"}}" method="POST">
       <ul class="auth-form">
         <li>

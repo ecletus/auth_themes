@@ -3,15 +3,15 @@
     <div class="qor-auth-box">
         <h1>{{t (.I18n "my_profile")}}</h1>
 
-    {{$flashes := .Flashes}}
-    {{if $flashes}}
-        <ul>
-        {{range $flash := $flashes}}
-            <li>{{$flash.Message}}</li>
+        {{$flashes := .Flashes}}
+        {{if $flashes}}
+            <ul>
+            {{range $flash := $flashes}}
+                <li>{{$flash.Message}}</li>
+            {{end}}
+            </ul>
         {{end}}
-        </ul>
-    {{end}}
 
-    {{include "auth/partial/change_password"}}
-</div>
+        {{include "auth/partial/change_password"}}
+    </div>
 </div>
